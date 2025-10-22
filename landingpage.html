@@ -1,1689 +1,889 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JayVian | Premium Phone Protection in Kenya</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #4f46e5;
-            --primary-dark: #4338ca;
-            --secondary: #10b981;
-            --accent: #f97316;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --card-bg: #ffffff;
-            --dark-card-bg: #1f2937;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            color: #334155;
-            overflow-x: hidden;
-            transition: background 0.5s ease;
-            line-height: 1.6;
-        }
-
-        body.dark-mode {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Navigation */
-        header {
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .dark-mode header {
-            background-color: rgba(15, 23, 42, 0.92);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .logo i {
-            font-size: 32px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            position: relative;
-            transition: color 0.3s;
-            font-size: 17px;
-        }
-
-        .dark-mode .nav-links a {
-            color: #e2e8f0;
-        }
-
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-buttons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 120px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 80px;
-        }
-
-        .hero-text {
-            flex: 1;
-            max-width: 650px;
-        }
-
-        .hero-text h1 {
-            font-size: 3.8rem;
-            line-height: 1.15;
-            margin-bottom: 25px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .hero-text p {
-            font-size: 1.35rem;
-            color: var(--gray);
-            margin-bottom: 40px;
-            line-height: 1.7;
-        }
-
-        .dark-mode .hero-text p {
-            color: #cbd5e1;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-
-        .btn {
-            padding: 18px 38px;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            outline: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-primary {
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(79, 70, 229, 0.5);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(79, 70, 229, 0.05);
-            transform: translateY(-5px);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 50px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 25px;
-            border-radius: 18px;
-            max-width: fit-content;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .dark-mode .hero-stats {
-            background: rgba(30, 41, 59, 0.7);
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-value {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-            position: relative;
-            display: inline-block;
-        }
-
-        .stat-value::after {
-            content: '+';
-            position: absolute;
-            top: 0;
-            right: -15px;
-            font-size: 1.5rem;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--gray);
-            font-weight: 500;
-        }
-
-        .hero-image {
-            flex: 1;
-            position: relative;
-            perspective: 1000px;
-        }
-
-        .phone-mockup {
-            position: relative;
-            width: 340px;
-            height: 640px;
-            margin: 0 auto;
-            transform-style: preserve-3d;
-            animation: float 6s ease-in-out infinite;
-            z-index: 2;
-        }
-
-        .phone-screen {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            border-radius: 30px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            color: white;
-            text-align: center;
-            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .phone-icon {
-            width: 90px;
-            height: 90px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-            font-size: 40px;
-            backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .phone-screen h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .phone-screen p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 12px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            overflow: hidden;
-            margin-top: 20px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            width: 100%;
-            background: white;
-            border-radius: 6px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(145deg, rgba(79, 70, 229, 0.15), rgba(124, 58, 237, 0.1));
-            backdrop-filter: blur(5px);
-            animation: floatElement 15s infinite ease-in-out;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        .floating-element:nth-child(1) {
-            width: 140px;
-            height: 140px;
-            top: -40px;
-            right: 50px;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 100px;
-            height: 100px;
-            bottom: 100px;
-            left: -30px;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            top: 250px;
-            left: 120px;
-            animation-delay: 4s;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 120px 0 100px;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 70px;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 25px;
-            color: var(--dark);
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .dark-mode .section-title {
-            color: #f1f5f9;
-        }
-
-        .section-subtitle {
-            font-size: 1.35rem;
-            color: var(--gray);
-            line-height: 1.7;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border-radius: 25px;
-            padding: 45px 35px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            border: 1px solid rgba(0, 0, 0, 0.03);
-        }
-
-        .dark-mode .feature-card {
-            background: var(--dark-card-bg);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.05);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
-        }
-
-        .feature-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .feature-card:hover:before {
-            opacity: 1;
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-            font-size: 32px;
-            color: white;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-card:nth-child(1) .feature-icon {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-        }
-
-        .feature-card:nth-child(2) .feature-icon {
-            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-        }
-
-        .feature-card:nth-child(3) .feature-icon {
-            background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
-        }
-
-        .feature-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .dark-mode .feature-title {
-            color: #e2e8f0;
-        }
-
-        .feature-description {
-            color: var(--gray);
-            line-height: 1.7;
-            font-size: 1.1rem;
-        }
-
-        .dark-mode .feature-description {
-            color: #cbd5e1;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dark-mode .testimonials {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
-
-        .testimonial-card {
-            background: var(--card-bg);
-            border-radius: 25px;
-            padding: 50px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .dark-mode .testimonial-card {
-            background: var(--dark-card-bg);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        .testimonial-card:before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            font-size: 8rem;
-            color: rgba(79, 70, 229, 0.1);
-            font-family: serif;
-            line-height: 1;
-            z-index: 0;
-        }
-
-        .testimonial-content {
-            font-size: 1.4rem;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
-            color: var(--dark);
-            font-weight: 500;
-            font-style: italic;
-        }
-
-        .dark-mode .testimonial-content {
-            color: #e2e8f0;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .author-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .author-info h4 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 5px;
-        }
-
-        .dark-mode .author-info h4 {
-            color: #e2e8f0;
-        }
-
-        .author-info p {
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-
-        .author-info .verified {
-            color: var(--secondary);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            margin-top: 8px;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 120px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .cta-container {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 35px;
-            padding: 90px 70px;
-            position: relative;
-            overflow: hidden;
-            max-width: 1100px;
-            margin: 0 auto;
-            box-shadow: 0 30px 60px rgba(79, 70, 229, 0.4);
-        }
-
-        .cta-container:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
-            transform: rotate(30deg);
-            animation: rotate 20s linear infinite;
-        }
-
-        .cta-title {
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 2;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .cta-subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin: 0 auto 50px;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
-            font-weight: 500;
-        }
-
-        .cta-button {
-            background: white;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.2rem;
-            padding: 20px 50px;
-            border-radius: 60px;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-            position: relative;
-            z-index: 2;
-            transition: all 0.3s ease;
-            border: none;
-            outline: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-            background: #f8fafc;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 100px 0 50px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 60px;
-            margin-bottom: 70px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.7rem;
-            margin-bottom: 30px;
-            position: relative;
-            font-weight: 700;
-        }
-
-        .footer-column h3:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-            border-radius: 2px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 18px;
-        }
-
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.1rem;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .footer-links i {
-            width: 25px;
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 18px;
-            margin-top: 30px;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-            font-size: 1.3rem;
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #94a3b8;
-            font-size: 1.05rem;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-25px) rotate(3deg);
-            }
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-        }
-
-        @keyframes floatElement {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(15px, 20px) rotate(5deg);
-            }
-            50% {
-                transform: translate(0, 30px) rotate(0deg);
-            }
-            75% {
-                transform: translate(-15px, 20px) rotate(-5deg);
-            }
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Dark mode toggle */
-        .dark-mode-toggle {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            z-index: 1000;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-            transition: all 0.3s ease;
-            font-size: 1.5rem;
-        }
-
-        .dark-mode-toggle:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-        }
-
-        /* Trust Badges */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 60px 0;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-            padding: 15px 25px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .dark-mode .badge {
-            background: rgba(30, 41, 59, 0.8);
-        }
-
-        .badge i {
-            font-size: 2.2rem;
-            color: var(--primary);
-        }
-
-        .badge-text {
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .dark-mode .badge-text {
-            color: #e2e8f0;
-        }
-
-        /* Guarantee Section */
-        .guarantee {
-            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-            color: white;
-            padding: 70px 0;
-            text-align: center;
-            border-radius: 25px;
-            margin: 80px auto;
-            max-width: 1200px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.3);
-        }
-
-        .guarantee:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.1;
-        }
-
-        .guarantee-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .guarantee h2 {
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            font-weight: 800;
-        }
-
-        .guarantee p {
-            font-size: 1.4rem;
-            margin-bottom: 35px;
-            font-weight: 500;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero-content {
-                gap: 50px;
-            }
-            
-            .hero-text h1 {
-                font-size: 3.2rem;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .hero-stats {
-                justify-content: center;
-                margin: 0 auto;
-            }
-            
-            .hero-text {
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 25px;
-                text-align: center;
-            }
-            
-            .trust-badges {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 2.4rem;
-            }
-            
-            .stat-value {
-                font-size: 2.2rem;
-            }
-            
-            .cta-title {
-                font-size: 2.2rem;
-            }
-            
-            .phone-mockup {
-                width: 280px;
-                height: 530px;
-            }
-            
-            .cta-container {
-                padding: 60px 30px;
-            }
-            
-            .guarantee {
-                padding: 50px 20px;
-            }
-            
-            .guarantee h2 {
-                font-size: 2.2rem;
-            }
-            
-            .guarantee p {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>RapStar Prototype</title>
+<style>
+  :root{--bg:#0f1724;--card:#0b1220;--accent:#ffb86b;--muted:#9aa4b2;--good:#40c057;--bad:#ff6b6b}
+  html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue";background:linear-gradient(180deg,#081026,#061423);color:#e6eef6}
+  .app{max-width:1100px;margin:0 auto;padding:14px}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  header h1{font-size:20px;margin:0;color:var(--accent)}
+  .grid{display:grid;grid-template-columns:1fr 340px;gap:12px}
+  .left,.right{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));padding:14px;border-radius:10px;box-shadow:0 4px 20px rgba(2,6,23,0.6)}
+  nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+  button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:#e9f0f7;font-weight:600}
+  button.primary{background:linear-gradient(90deg,var(--accent),#ff7a7a);border:none;color:#041023}
+  .statrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+  .stat{background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;min-width:110px;text-align:center}
+  .big{font-size:24px;font-weight:700}
+  .muted{color:var(--muted);font-size:12px}
+  .screen{display:none}
+  .screen.active{display:block}
+  .card{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;margin-bottom:10px}
+  .row{display:flex;gap:8px;align-items:center}
+  input[type="range"]{width:100%}
+  .small{font-size:13px;color:var(--muted)}
+  .danger{color:var(--bad)}
+  .good{color:var(--good)}
+  .center{text-align:center}
+  .footer{margin-top:10px;padding:8px;border-radius:8px;color:var(--muted);font-size:12px;text-align:center}
+  .event{background:linear-gradient(90deg,#12293f,#0b2232);padding:8px;border-radius:8px;margin-bottom:8px;border:1px solid rgba(255,255,255,0.02)}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+  select,input,textarea{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef6}
+  .tiny{font-size:12px;color:var(--muted)}
+  .pill{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:12px}
+  .big-btn{display:block;padding:10px;border-radius:8px;background:linear-gradient(90deg,#1b3a5a,#15314a);border:1px solid rgba(255,255,255,0.03);color:#e6eef6;font-weight:700}
+  .columns{display:flex;gap:8px}
+  .col{flex:1}
+  .danger-btn{background:linear-gradient(90deg,#6b1b1b,#4b0f0f);color:#fff}
+  .ok{background:linear-gradient(90deg,#1a4b2f,#0f3b27);color:#fff}
+  pre{white-space:pre-wrap;background:rgba(0,0,0,0.15);padding:8px;border-radius:6px;font-size:13px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}.right{order:2}}
+  .splash{display:flex;align-items:center;justify-content:center;min-height:60vh;flex-direction:column;text-align:center}
+  .logo{font-size:48px;font-weight:800;color:var(--accent);letter-spacing:2px}
+  .disclaimer{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;margin-bottom:12px}
+  .bar{height:10px;background:rgba(255,255,255,0.03);border-radius:6px;overflow:hidden}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,#ffd6a5,#ff7aa2)}
+</style>
 </head>
 <body>
-    <!-- Dark Mode Toggle -->
-    <div class="dark-mode-toggle" id="darkModeToggle">
-        <i class="fas fa-moon" id="moonIcon"></i>
-        <i class="fas fa-sun hidden" id="sunIcon"></i>
+<div class="app" id="app">
+  <header>
+    <div>
+      <h1>RapStar Prototype</h1>
+      <div class="tiny">A single-file prototype — fictional simulator.</div>
+    </div>
+    <div style="margin-left:auto">
+      <button id="btn-save">Save</button>
+      <button id="btn-load">Load</button>
+      <button id="btn-reset">Reset</button>
+    </div>
+  </header>
+
+  <div id="splashScreen" class="splash">
+    <div class="logo">RAPSTAR</div>
+    <div style="margin-top:10px" class="disclaimer">
+      <strong>Disclaimer</strong><br/>
+      This is a fictional game. It contains mature themes (crime, substance use, death) for storytelling only.
+      Toggle mature content in Settings.
+    </div>
+    <div style="margin-top:8px">
+      <button id="newGame" class="big-btn primary">NEW GAME</button>
+      <button id="loadGameStart" class="big-btn" style="margin-top:8px">LOAD GAME</button>
+    </div>
+    <div class="footer">Built-in prototype — replace visuals & expand gameplay as you like.</div>
+  </div>
+
+  <div id="mainUI" style="display:none">
+    <div class="grid">
+      <div class="left">
+        <nav id="mainNav"></nav>
+        <div id="screensArea">
+          <!-- HOME -->
+          <div id="home" class="screen active">
+            <div class="row card">
+              <div style="width:84px;height:84px;border-radius:12px;background:linear-gradient(90deg,#163b54,#0d2740);display:flex;align-items:center;justify-content:center;font-size:34px">🎤</div>
+              <div style="flex:1;margin-left:8px">
+                <div class="row" style="justify-content:space-between">
+                  <div>
+                    <div id="artistName" class="big">Your Name</div>
+                    <div class="muted" id="artistTag">Stage name · Local artist</div>
+                  </div>
+                  <div style="text-align:right">
+                    <div class="muted">Net worth</div>
+                    <div class="big" id="netWorth">$0</div>
+                  </div>
+                </div>
+                <div class="statrow" style="margin-top:8px">
+                  <div class="stat"><div class="muted">Fame</div><div id="fameVal" class="big">0</div></div>
+                  <div class="stat"><div class="muted">Reputation</div><div id="repVal" class="big">50</div></div>
+                  <div class="stat"><div class="muted">Energy</div><div id="energyVal" class="big">100</div></div>
+                  <div class="stat"><div class="muted">Heat</div><div id="heatVal" class="big">0</div></div>
+                </div>
+                <div style="margin-top:8px" class="row">
+                  <button class="primary" onclick="goScreen('career')">Go to Career</button>
+                  <button onclick="goScreen('personal')">Personal Life</button>
+                  <button onclick="goScreen('buzz')">Buzz</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="row" style="justify-content:space-between">
+                <div class="muted">Notifications</div>
+                <div class="tiny">Day <span id="gameDay">1</span></div>
+              </div>
+              <div id="notifications"></div>
+            </div>
+            <div class="card">
+              <div class="muted">Quick Actions</div>
+              <div style="margin-top:8px" class="row">
+                <button onclick="rest()">Rest</button>
+                <button onclick="workJob()">Work Job</button>
+                <button onclick="openJobs()">Find Side Hustle</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAREER -->
+          <div id="career" class="screen">
+            <div class="card">
+              <div class="row" style="justify-content:space-between">
+                <div>
+                  <div class="muted">Studio</div>
+                  <div class="small">Record tracks, pick beats, release music</div>
+                </div>
+                <div>
+                  <button onclick="goScreen('home')">Back</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-2">
+              <div>
+                <div class="card">
+                  <label>Song title</label>
+                  <input id="songTitle" placeholder="Write a song title"/>
+                  <label>Genre</label>
+                  <select id="songGenre">
+                    <option>Hip-Hop</option><option>Pop</option><option>R&B</option><option>Afrobeat</option><option>Trap</option>
+                  </select>
+                  <label>Producer quality</label>
+                  <select id="producerQuality"><option>Indie (low)</option><option>Pro (med)</option><option>Legend (high)</option></select>
+                  <div style="margin-top:8px" class="row">
+                    <button onclick="recordSong()" class="primary">Record</button>
+                    <button onclick="releaseSong()">Release</button>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="muted">Recently Released</div>
+                  <div id="discography"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="card">
+                  <div class="muted">Streaming Dashboard (weekly)</div>
+                  <div id="streamDashboard"></div>
+                </div>
+
+                <div class="card">
+                  <div class="muted">Tours</div>
+                  <div class="small">Plan simple tours to grow fans</div>
+                  <label>Choose region</label>
+                  <select id="tourRegion"><option>Local</option><option>Regional</option><option>International</option></select>
+                  <div style="margin-top:8px" class="row">
+                    <button onclick="startTour()">Start Tour</button>
+                  </div>
+                  <div id="tourLog"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- BUSINESS -->
+          <div id="business" class="screen">
+            <div class="card">
+              <div class="muted">Business Hub</div>
+              <div class="small">Invest or create brands</div>
+            </div>
+            <div class="grid-2">
+              <div class="card">
+                <label>Invest amount</label>
+                <input id="investAmt" type="number" value="1000"/>
+                <label>Asset type</label>
+                <select id="investType"><option>Stocks</option><option>Crypto</option><option>Real Estate</option><option>Startup</option></select>
+                <div style="margin-top:8px" class="row">
+                  <button onclick="makeInvestment()">Invest</button>
+                </div>
+                <div id="investLog"></div>
+              </div>
+              <div class="card">
+                <div class="muted">Brands & Ownership</div>
+                <div id="ownedBrands"></div>
+                <div style="margin-top:8px" class="row">
+                  <button onclick="createBrand()">Create Clothing Brand ($5000)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FINANCE -->
+          <div id="finance" class="screen">
+            <div class="card">
+              <div class="muted">Finance Overview</div>
+              <div id="financeBreakdown"></div>
+            </div>
+            <div class="card">
+              <div class="muted">Accounts</div>
+              <div id="accounts"></div>
+            </div>
+          </div>
+
+          <!-- BUZZ -->
+          <div id="buzz" class="screen">
+            <div class="card">
+              <div class="muted">Buzz & Scandals</div>
+              <div id="buzzFeed"></div>
+            </div>
+            <div class="card">
+              <div class="muted">PR Actions</div>
+              <div class="row">
+                <button onclick="prAction('apology')">Public Apology ($500)</button>
+                <button onclick="prAction('stunt')">Do Viral Stunt ($1200)</button>
+                <button onclick="prAction('donate')">Charity + PR ($3000)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SOCIAL -->
+          <div id="social" class="screen">
+            <div class="card">
+              <div class="muted">Social Feed</div>
+              <label>Post</label>
+              <input id="postText" placeholder="Share a moment..."/>
+              <div style="margin-top:8px" class="row">
+                <button onclick="makePost()">Post</button>
+                <button onclick="startTrend()">Start a Trend</button>
+              </div>
+              <div id="feed"></div>
+            </div>
+            <div class="card">
+              <div class="muted">DMs</div>
+              <div id="dms"></div>
+            </div>
+          </div>
+
+          <!-- EMPIRE -->
+          <div id="empire" class="screen">
+            <div class="card">
+              <div class="muted">Empire Management</div>
+              <div class="small">Sign artists or expand businesses</div>
+              <div id="labelArtists"></div>
+              <div style="margin-top:8px" class="row">
+                <button onclick="openSignArtist()">Sign Artist ($2000)</button>
+                <button onclick="expandEmpire()">Expand HQ ($10000)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SHOP -->
+          <div id="shop" class="screen">
+            <div class="card">
+              <div class="muted">Shop / IAP placeholders</div>
+              <div class="row">
+                <button onclick="buyPack('connections')">Buy Connections Pack ($4.99) — IAP simulated</button>
+                <button onclick="buyPack('hype')">Hype Starter ($2.99)</button>
+                <button onclick="buyPack('vip')">VIP Monthly ($6.99)</button>
+              </div>
+              <div id="iapLog"></div>
+            </div>
+          </div>
+
+          <!-- PERSONAL -->
+          <div id="personal" class="screen">
+            <div class="card">
+              <div class="muted">Personal Life</div>
+              <div class="small">Relationships, real estate, cars, shopping</div>
+            </div>
+
+            <div class="grid-2">
+              <div class="card">
+                <div class="muted">Relationships</div>
+                <div id="relationships"></div>
+                <div style="margin-top:8px" class="row">
+                  <button onclick="meetSomeone()">Meet Someone</button>
+                  <button onclick="dateSomeone()">Go on Date</button>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="muted">Real Estate & Cars</div>
+                <div class="row">
+                  <button onclick="buyHouse()">Buy House ($8000)</button>
+                  <button onclick="buyCar()">Buy Sport Car ($4500)</button>
+                </div>
+                <div id="assets"></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="muted">Nightlife & Risk</div>
+              <div class="row">
+                <button onclick="clubNight()">Club Night</button>
+                <button onclick="doRisk('drug_deal')">Illegal: Quick Deal</button>
+                <button onclick="doRisk('robbery')">Illegal: Robbery</button>
+              </div>
+              <div id="riskLog"></div>
+            </div>
+
+          </div>
+
+          <!-- SETTINGS (hidden but accessible by nav) -->
+          <div id="settings" class="screen">
+            <div class="card">
+              <div class="muted">Settings</div>
+              <label><input type="checkbox" id="matureToggle"> Enable Mature Content</label>
+              <label><input type="checkbox" id="autosaveToggle" checked> Auto-save</label>
+              <div style="margin-top:8px" class="row">
+                <button onclick="clearAll()">Factory Reset</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="card">
+          <div class="muted">Game Menu</div>
+          <div style="margin-top:8px" id="menuButtons"></div>
+        </div>
+
+        <div class="card">
+          <div class="muted">Event Log</div>
+          <div id="eventLog"></div>
+        </div>
+
+        <div class="card">
+          <div class="muted">Quick Stats</div>
+          <div class="small">Fans: <span id="fansVal">0</span></div>
+          <div class="small">Contracts: <span id="contractsVal">0</span></div>
+          <div class="small">Criminal Record: <span id="recordVal">Clean</span></div>
+        </div>
+
+        <div class="card">
+          <div class="muted">Tips</div>
+          <div class="small">Tap actions to see results. This prototype simulates probabilities for events. Expand with images & audio later.</div>
+        </div>
+
+      </div>
     </div>
 
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-shield-alt"></i>
-                JayVian
-            </a>
-            <nav class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Coverage</a>
-                <a href="#">How It Works</a>
-                <a href="#">Claims</a>
-                <a href="#">About Us</a>
-            </nav>
-            <div class="nav-buttons">
-                <button class="btn btn-secondary">
-                    <i class="fas fa-sign-in-alt"></i> Client Login
-                </button>
-            </div>
-        </div>
-    </header>
+    <div class="footer">Prototype — not monetized. Replace IAP placeholders with platform-specific code later.</div>
+  </div>
+</div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Stop Worrying About Phone Theft in Kenya</h1>
-                <p>Join 5,000+ Kenyans who protect their devices with our enterprise-grade insurance. Get immediate coverage and peace of mind for just 700 KES/month.</p>
-                
-                <div class="hero-buttons">
-                    <button class="btn btn-primary">
-                        <i class="fas fa-shield-alt"></i> Secure My Phone Now
-                    </button>
-                    <button class="btn btn-secondary">
-                        <i class="fas fa-play-circle"></i> See How It Works
-                    </button>
-                </div>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-value">50K</span>
-                        <span class="stat-label">Phones Stolen Annually*</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">87%</span>
-                        <span class="stat-label">Claim Approval Rate</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">72h</span>
-                        <span class="stat-label">Average Payout Time</span>
-                    </div>
-                </div>
-                <p style="font-size: 0.9rem; margin-top: 15px; color: var(--gray);">*Source: National Police Service Kenya 2023 Report</p>
-            </div>
-            
-            <div class="hero-image">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="phone-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>360° Theft Protection</h3>
-                        <p>Policy Status: <span style="color: #ffd700; font-weight: 700;">ACTIVE</span></p>
-                        <p>Coverage Amount: <span style="font-weight: 700;">20,000 KES</span></p>
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <p style="margin-top: 15px; font-weight: 600;">Next Premium: 30 Days</p>
-                    </div>
-                </div>
-                
-                <div class="floating-elements">
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+/* --------------------------
+   Simple data model & helpers
+   -------------------------- */
+const defaultState = {
+  meta:{day:1},
+  player:{
+    name:"New Artist",
+    stageName:"YOUR STAGE",
+    fame:0, rep:50, energy:100, heat:0, money:500,
+    fans:0, netWorth:500, talents:{songwriting:10,stage:10,marketing:8}, criminalRecord:0
+  },
+  inventory:{houses:[],cars:[],brands:[]},
+  discography:[],
+  businesses:[],
+  events:[],
+  config:{mature:false, autosave:true}
+};
 
-    <!-- Trust Badges -->
-    <div class="container">
-        <div class="trust-badges">
-            <div class="badge">
-                <i class="fas fa-shield-check"></i>
-                <div class="badge-text">Licensed by IRA Kenya</div>
-            </div>
-            <div class="badge">
-                <i class="fas fa-lock"></i>
-                <div class="badge-text">Bank-Level Security</div>
-            </div>
-            <div class="badge">
-                <i class="fas fa-medal"></i>
-                <div class="badge-text">5,000+ Protected Devices</div>
-            </div>
-        </div>
-    </div>
+let state = load() || JSON.parse(JSON.stringify(defaultState));
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why Kenyan's Trust JayVian</h2>
-                <p class="section-subtitle">Our enterprise-grade protection gives you peace of mind in Kenya's challenging mobile security environment</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3 class="feature-title">Immediate Protection</h3>
-                    <p class="feature-description">Your coverage begins the moment you sign up. After just 3 months of consistent payments, you become eligible for our full 20,000 KES payout.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <h3 class="feature-title">Hassle-Free Payouts</h3>
-                    <p class="feature-description">With an 87% approval rate and average payout within 72 hours of claim approval, we make recovery simple when you need it most.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
-                    <h3 class="feature-title">Refer & Earn</h3>
-                    <p class="feature-description">Earn 10% of your referrals' premiums. Build your network and potentially cover your own insurance costs through referrals.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+/* --------------------------
+   UI boot
+   -------------------------- */
+const screens = ["home","career","business","finance","buzz","social","empire","shop","personal","settings"];
+function buildNav(){
+  const menu = document.getElementById('mainNav');
+  menu.innerHTML = '';
+  const names = {home:"Home",career:"Career",business:"Business",finance:"Finance",buzz:"Buzz",social:"Social",empire:"Empire",shop:"Shop",personal:"Personal",settings:"Settings"};
+  screens.forEach(s=>{
+    const b = document.createElement('button');
+    b.textContent = names[s]; b.onclick = ()=>goScreen(s);
+    menu.appendChild(b);
+  });
+}
+function buildRightMenu(){
+  const area = document.getElementById('menuButtons'); area.innerHTML='';
+  const btns = ["home","career","business","finance","buzz","social","empire","shop","personal"];
+  btns.forEach(bi=>{
+    const b = document.createElement('button'); b.textContent = bi.toUpperCase(); b.onclick=()=>goScreen(bi);
+    area.appendChild(b);
+  });
+}
+function goScreen(id){
+  screens.forEach(s=>document.getElementById(s).classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  refreshUI();
+}
 
-    <!-- Guarantee Section -->
-    <div class="container">
-        <div class="guarantee">
-            <div class="guarantee-content">
-                <h2>Our 90-Day Money-Back Guarantee</h2>
-                <p>Try JayVian risk-free. If you're not completely satisfied with our protection in the first 90 days, we'll refund your premiums - no questions asked.</p>
-                <button class="cta-button">
-                    <i class="fas fa-shield-alt"></i> Start Risk-Free Trial
-                </button>
-            </div>
-        </div>
-    </div>
+/* --------------------------
+   Save / Load
+   -------------------------- */
+function save(){
+  localStorage.setItem('rapstar_save', JSON.stringify(state));
+  notify("Game saved");
+}
+function load(){
+  try{
+    const raw = localStorage.getItem('rapstar_save');
+    return raw ? JSON.parse(raw) : null;
+  }catch(e){return null}
+}
+function loadToState(){
+  const s = load();
+  if(s){ state = s; notify("Loaded save"); refreshUI(); }
+  else notify("No save found");
+}
+function clearAll(){ if(confirm("Reset all data?")){ localStorage.removeItem('rapstar_save'); state = JSON.parse(JSON.stringify(defaultState)); location.reload(); }}
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="testimonial-card">
-                <p class="testimonial-content">"When my iPhone was stolen in Nairobi CBD, I thought I'd lost everything. JayVian processed my claim in 48 hours and I had 20,000 KES in my M-Pesa. Their service saved me during a difficult time!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">WK</div>
-                    <div class="author-info">
-                        <h4>Wairimu K.</h4>
-                        <p>Mombasa Road, Nairobi</p>
-                        <div class="verified">
-                            <i class="fas fa-check-circle"></i> Verified Customer
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* --------------------------
+   Init & Splash buttons
+   -------------------------- */
+document.getElementById('newGame').onclick = ()=>{ document.getElementById('splashScreen').style.display='none'; document.getElementById('mainUI').style.display='block'; startNewGame(); };
+document.getElementById('loadGameStart').onclick = ()=>{ document.getElementById('splashScreen').style.display='none'; document.getElementById('mainUI').style.display='block'; loadToState(); };
+document.getElementById('btn-save').onclick = save;
+document.getElementById('btn-load').onclick = loadToState;
+document.getElementById('btn-reset').onclick = ()=>{ if(confirm('Clear saves?')) { localStorage.removeItem('rapstar_save'); notify('Saves cleared'); } };
+document.getElementById('matureToggle').onchange = (e)=> state.config.mature = e.target.checked;
+document.getElementById('autosaveToggle').onchange = (e)=> state.config.autosave = e.target.checked;
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-container">
-                <h2 class="cta-title">Protect Your Phone Today, Sleep Better Tonight</h2>
-                <p class="cta-subtitle">For less than 25 KES/day, get enterprise-grade protection and the peace of mind that comes with knowing you're covered</p>
-                <button class="cta-button">
-                    <i class="fas fa-shield-alt"></i> Get Protected Now
-                </button>
-                <p style="margin-top: 30px; font-size: 1rem; color: rgba(255,255,255,0.8);">First month only 350 KES for a limited time</p>
-            </div>
-        </div>
-    </section>
+/* --------------------------
+   Game Loop (simple day tick)
+   -------------------------- */
+function tickDay(){
+  state.meta.day++;
+  state.player.energy = Math.max(0, state.player.energy - 6);
+  // passive income
+  let passive = 0;
+  state.businesses.forEach(b=> { passive += (b.monthly||0); });
+  state.player.money += Math.round(passive/4); // weekly-ish
+  // apply heat decay
+  state.player.heat = Math.max(0, state.player.heat - 1);
+  // random event chance
+  if(Math.random() < 0.35) randomEvent();
+  refreshUI();
+  if(state.config.autosave) save();
+}
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>JayVian</h3>
-                    <p style="color: #cbd5e1; margin-bottom: 25px; line-height: 1.7;">Providing enterprise-grade phone protection to Kenyans since 2020. Licensed and regulated by the Insurance Regulatory Authority of Kenya.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Coverage Plans</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> How It Works</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> File a Claim</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Westlands, Nairobi, Kenya</a></li>
-                        <li><a href="#"><i class="fas fa-phone-alt"></i> +254 700 123 456</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> support@jayvian.co.ke</a></li>
-                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 8AM - 6PM</a></li>
-                        <li><a href="#"><i class="fas fa-headset"></i> 24/7 Claims Support</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 JayVian Microinsurance. All rights reserved. | Licensed by the Insurance Regulatory Authority of Kenya</p>
-                <p style="margin-top: 15px;">JayVian is a registered trademark. All insurance products are underwritten by Kenya Insurance Partners Ltd.</p>
-            </div>
-        </div>
-    </footer>
+/* --------------------------
+   UI refresh
+   -------------------------- */
+function refreshUI(){
+  // top
+  document.getElementById('artistName').innerText = state.player.stageName || state.player.name;
+  document.getElementById('artistTag').innerText = state.player.name + " · " + (state.player.fame > 30 ? "Rising Star" : "Local Artist");
+  document.getElementById('netWorth').innerText = '$'+format(state.player.money + state.player.netWorth);
+  document.getElementById('fameVal').innerText = Math.round(state.player.fame);
+  document.getElementById('repVal').innerText = Math.round(state.player.rep);
+  document.getElementById('energyVal').innerText = Math.round(state.player.energy);
+  document.getElementById('heatVal').innerText = Math.round(state.player.heat);
+  document.getElementById('gameDay').innerText = state.meta.day;
+  document.getElementById('fansVal').innerText = format(state.player.fans);
+  document.getElementById('contractsVal').innerText = state.businesses.length;
+  document.getElementById('recordVal').innerText = state.player.criminalRecord>0 ? 'Has Record' : 'Clean';
+  // notifications
+  const not = document.getElementById('notifications'); not.innerHTML='';
+  if(state.events.length>0){ state.events.slice(-3).reverse().forEach(ev => { const d = document.createElement('div'); d.className='event'; d.innerHTML = '<strong>'+ev.title+'</strong><div class="tiny">'+ev.text+'</div>'; not.appendChild(d); }); }
+  // discography
+  const disc = document.getElementById('discography'); disc.innerHTML='';
+  (state.discography.slice().reverse()).forEach(s=>{
+    const d = document.createElement('div'); d.className='tiny'; d.innerHTML = `<strong>${s.title}</strong> · ${s.genre} · Streams: ${format(s.streams)} · Revenue: $${format(Math.round(s.revenue))}`; disc.appendChild(d);
+  });
+  // streaming dash
+  updateStreamDashboard();
+  // finances
+  const fin = document.getElementById('financeBreakdown'); fin.innerHTML = `<div class="small">Money: $${format(state.player.money)}</div><div class="small">Net Worth: $${format(state.player.netWorth)}</div>`;
+  document.getElementById('accounts').innerText = 'Bank balance: $'+format(state.player.money);
+  // owned brands
+  const ob = document.getElementById('ownedBrands'); ob.innerHTML=''; if(state.inventory.brands.length===0) ob.innerHTML='<div class="tiny">No brands owned</div>'; else state.inventory.brands.forEach(b=>{const el=document.createElement('div'); el.className='small'; el.textContent = b.name + ' · $'+format(b.value); ob.appendChild(el);});
+  // investments log
+  document.getElementById('investLog').innerText = state.businesses.map(b=>`${b.type} $${b.amount} val:${b.value||0}`).join('\n') || 'No investments';
+  // buzz feed
+  const bf = document.getElementById('buzzFeed'); bf.innerHTML=''; state.events.slice().reverse().forEach(ev=>{ const e=document.createElement('div'); e.className='tiny'; e.innerHTML = `<strong>${ev.title}</strong> — ${ev.text}`; bf.appendChild(e); });
+  // feed
+  document.getElementById('feed').innerHTML = ''; (state.player.feed||[]).slice().reverse().forEach(p=>{ const e=document.createElement('div'); e.className='small'; e.innerHTML=`<strong>${p.text}</strong> · ${p.engagement} likes`; document.getElementById('feed').appendChild(e); });
+  // relationships & assets
+  document.getElementById('relationships').innerHTML = (state.player.relationships||[]).map(r=>`${r.name} (${r.status})`).join('<br>') || '<div class="tiny">No relationships</div>';
+  document.getElementById('assets').innerHTML = `Houses: ${state.inventory.houses.length} · Cars: ${state.inventory.cars.length}`;
+  // label artists
+  document.getElementById('labelArtists').innerHTML = (state.inventory.labelArtists||[]).map(a=>`${a.name} · fans:${a.fans}`).join('<br>') || '<div class="tiny">No artists</div>';
+  // events log short
+  const evlog = document.getElementById('eventLog'); evlog.innerHTML = state.events.slice().reverse().slice(0,8).map(e=>`<div class="tiny">• ${e.title}</div>`).join('');
+  // tour log
+  document.getElementById('tourLog').innerText = (state.tours||[]).slice().reverse().map(t=>`${t.region} → ${t.result}`).join('\n') || 'No tours yet';
+  // discography
+  document.getElementById('streamDashboard').innerText = 'Streams by platform will appear here after releases.';
+  // iap log
+  document.getElementById('iapLog').innerText = localStorage.getItem('iap_log')||'';
+}
 
-    <script>
-        // Dark mode toggle functionality
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const moonIcon = document.getElementById('moonIcon');
-        const sunIcon = document.getElementById('sunIcon');
-        const body = document.body;
+/* --------------------------
+   Utilities
+   -------------------------- */
+function format(n){ if(n>=1000000) return (n/1000000).toFixed(2)+'M'; if(n>=1000) return (n/1000).toFixed(1)+'k'; return Math.round(n) }
+function notify(text){ state.events.push({title:text, text: new Date().toLocaleString()}); refreshUI(); }
 
-        // Check for saved dark mode preference
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.classList.add('dark-mode');
-            moonIcon.classList.add('hidden');
-            sunIcon.classList.remove('hidden');
-        }
+/* --------------------------
+   New Game / Setup
+   -------------------------- */
+function startNewGame(){
+  // simple prompt-based init for prototype
+  const name = prompt("Your real name?","Jay");
+  const stage = prompt("Stage name?","JayStar");
+  state = JSON.parse(JSON.stringify(defaultState));
+  state.player.name = name || state.player.name;
+  state.player.stageName = stage || state.player.stageName;
+  // sample starting background selector
+  const bg = prompt("Choose background: humble / rich / famous","humble");
+  if(bg === "rich"){ state.player.money = 3000; state.player.fame = 5; state.player.rep = 40; }
+  else if(bg === "famous"){ state.player.money = 8000; state.player.fame = 20; state.player.rep = 60; state.player.criminalRecord = 0; }
+  else { state.player.money = 300; state.player.fame = 0; state.player.rep = 55; }
+  notify("Welcome, " + state.player.stageName);
+  buildNav(); buildRightMenu();
+  refreshUI();
+}
 
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                moonIcon.classList.remove('hidden');
-                sunIcon.classList.add('hidden');
-                localStorage.setItem('darkMode', 'disabled');
-            }
-        });
+/* --------------------------
+   JOBS / HUSTLES
+   -------------------------- */
+const jobsCatalog = [
+  {id:'barista',title:'Coffee Shop Barista',pay:120,time:1,exp:1},
+  {id:'retail',title:'Retail Clerk',pay:220,time:2,exp:1},
+  {id:'studioAsst',title:'Studio Assistant',pay:420,time:1,exp:3,contactChance:0.2},
+  {id:'delivery',title:'Driver',pay:260,time:2,exp:1},
+  {id:'gigs',title:'Club Gig / Open Mic',pay:400,time:1,exp:4,fameGain:2}
+];
 
-        // Floating animation for feature cards
-        const featureCards = document.querySelectorAll('.feature-card');
-        featureCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-15px)';
-                card.style.boxShadow = '0 25px 50px rgba(79, 70, 229, 0.25)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0)';
-                card.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.08)';
-            });
-        });
+function openJobs(){
+  const pick = prompt("Available jobs: 1) Barista 2) Retail 3) Studio Assistant 4)Driver 5)Club Gig\nEnter number to work (or cancel)","");
+  const idx = parseInt(pick)-1;
+  if(jobsCatalog[idx]){ const j = jobsCatalog[idx]; state.player.money += j.pay; state.player.energy = Math.max(0,state.player.energy - (j.time*12)); state.player.fame += j.fameGain||0; if(Math.random() < (j.contactChance||0)) { // meet producer
+      notify("You met a contact at work!");
+      // add contact to feed
+      state.player.fans += 10;
+    }
+    notify(`Worked: ${j.title} +$${j.pay}`); refreshUI(); tickDay(); } else { notify("No job selected"); }
+}
 
-        // Animation for elements on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+function workJob(){
+  // picks a simple job automatically
+  const j = jobsCatalog[Math.floor(Math.random()*jobsCatalog.length)];
+  state.player.money += j.pay; state.player.energy = Math.max(0,state.player.energy - (j.time*12));
+  state.player.fame += j.fameGain||0;
+  notify(`Shift: ${j.title} earned $${j.pay}`); refreshUI(); tickDay();
+}
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+/* --------------------------
+   RECORD & RELEASE
+   -------------------------- */
+function recordSong(){
+  const title = document.getElementById('songTitle').value || ("Track "+(state.discography.length+1));
+  const genre = document.getElementById('songGenre').value;
+  const prod = document.getElementById('producerQuality').value;
+  const quality = (state.player.talents.songwriting/10) * (prod==='Legend (high)'?1.7:(prod==='Pro (med)'?1.2:0.9)) * (state.player.energy/100);
+  const s = {title,genre,quality,streams:0,revenue:0,releaseDay:null};
+  state.discography.push(s);
+  notify("Recorded: "+title);
+  state.player.energy = Math.max(0, state.player.energy - 25);
+  refreshUI();
+}
 
-        // Apply animations to sections
-        document.querySelectorAll('.hero-text, .hero-image, .section-header, .feature-card, .testimonial-card, .cta-container, .guarantee, .trust-badges').forEach(el => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(40px)';
-            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(el);
-        });
+function releaseSong(){
+  const idx = state.discography.length-1;
+  if(idx<0){ notify("No recorded track"); return; }
+  const s = state.discography[idx];
+  if(s.releaseDay) { notify("Already released"); return; }
+  // release impact
+  s.releaseDay = state.meta.day;
+  // initial streams weighted by fame & quality
+  const base = 1000 + (state.player.fame * 200) + (s.quality * 1000);
+  // distribute to platforms
+  const platforms = {Streamify:0.32, Tono:0.18, BuzzPlay:0.24, ReelMix:0.2, AudiOn:0.06};
+  s.streams = 0;
+  s.revenue = 0;
+  Object.keys(platforms).forEach(p=>{
+    const platStreams = Math.round(base * platforms[p] * (1 + Math.random()*0.9));
+    s.streams += platStreams;
+    // payout rates approximated
+    const rate = (p==='BuzzPlay' || p==='ReelMix') ? 0.001 : (p==='Streamify'?0.003:0.0025);
+    s.revenue += platStreams * rate;
+  });
+  // fame bump
+  state.player.fame += Math.min(30, Math.round(s.streams/5000));
+  state.player.fans += Math.round(s.streams/20);
+  state.player.money += Math.round(s.revenue);
+  state.player.netWorth += Math.round(s.revenue * 0.25);
+  notify("Released: "+s.title+" — "+format(s.streams)+" streams");
+  refreshUI();
+}
 
-        // Add smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+function updateStreamDashboard(){
+  if(state.discography.length===0) return;
+  const s = state.discography[state.discography.length-1];
+  const dash = document.getElementById('streamDashboard');
+  if(!s) return;
+  // make a simple breakdown
+  const platforms = {Streamify:0.32, Tono:0.18, BuzzPlay:0.24, ReelMix:0.2, AudiOn:0.06};
+  let out = `<strong>${s.title}</strong>\n\n`;
+  Object.keys(platforms).forEach(p=>{
+    const ps = Math.round(s.streams * platforms[p]);
+    const rate = (p==='BuzzPlay' || p==='ReelMix') ? 0.001 : (p==='Streamify'?0.003:0.0025);
+    out += `${p}: ${format(ps)} streams · $${format(Math.round(ps*rate))}\n`;
+  });
+  out += `\nEstimated total revenue: $${format(Math.round(s.revenue))}`;
+  dash.innerText = out;
+}
 
-        // CTA button animation
-        const ctaButton = document.querySelector('.cta-button');
-        setInterval(() => {
-            ctaButton.style.transform = 'scale(1.05)';
-            setTimeout(() => {
-                ctaButton.style.transform = 'scale(1)';
-            }, 500);
-        }, 3000);
-    </script>
+/* --------------------------
+   TOURS
+   -------------------------- */
+function startTour(){
+  const region = document.getElementById('tourRegion').value;
+  const baseFans = {Local:2000,Regional:8000,International:30000}[region] || 2000;
+  const cost = region==='International'?8000:(region==='Regional'?2500:500);
+  if(state.player.money < cost){ notify("Not enough money for tour"); return; }
+  state.player.money -= cost;
+  // compute attendance influenced by fame
+  const attendance = Math.round(baseFans * (1 + Math.min(4,state.player.fame/25)));
+  const rev = attendance * (region==='International'?40:(region==='Regional'?20:10));
+  state.player.money += rev;
+  state.player.fans += Math.round(attendance/5);
+  state.player.fame += Math.round(attendance/10000);
+  const log = `${region} Tour: Attendance ${format(attendance)} revenue $${format(rev)}`;
+  state.tours = state.tours||[]; state.tours.push({region, result:log});
+  notify("Tour complete — " + log);
+  refreshUI();
+  tickDay();
+}
+
+/* --------------------------
+   INVEST / BUSINESSES
+   -------------------------- */
+function makeInvestment(){
+  const amt = Number(document.getElementById('investAmt').value||0);
+  const type = document.getElementById('investType').value;
+  if(amt <=0 || state.player.money < amt) { notify("Invalid investment"); return; }
+  state.player.money -= amt;
+  const b = {type, amount:amt, value: Math.round(amt * (1 + Math.random()*0.5)), monthly: Math.round(amt*0.02)};
+  state.businesses.push(b);
+  notify("Invested $"+amt+" in "+type);
+  refreshUI();
+}
+function createBrand(){
+  if(state.player.money < 5000){ notify("Not enough money"); return; }
+  state.player.money -= 5000;
+  const name = prompt("Name your clothing brand","StreetVibe");
+  state.inventory.brands.push({name:valueOr(name,"StreetVibe"), value:5000});
+  notify("Created brand " + name);
+  refreshUI();
+}
+
+/* --------------------------
+   PR / BUZZ
+   -------------------------- */
+function prAction(type){
+  if(type==='apology'){
+    if(state.player.money < 500){ notify("Need $500"); return; }
+    state.player.money -= 500; state.player.rep += 6; state.player.heat = Math.max(0, state.player.heat-5);
+    notify("Public apology made");
+  } else if(type==='stunt'){
+    if(state.player.money < 1200){ notify("Need $1200"); return; }
+    state.player.money -= 1200; state.player.fame += 15; state.player.rep -= 6; notify("Viral stunt performed — fame up, reputation risk");
+  } else if(type==='donate'){
+    if(state.player.money < 3000){ notify("Need $3000"); return; }
+    state.player.money -= 3000; state.player.rep += 18; state.player.fame += 5; notify("Charity and PR — reputation improved");
+  }
+  refreshUI();
+}
+
+/* --------------------------
+   SOCIAL
+   -------------------------- */
+function makePost(){
+  const txt = document.getElementById('postText').value || "New track coming!";
+  const engagement = Math.round( Math.max(0, Math.random()*500 + (state.player.fame*10)) );
+  state.player.feed = state.player.feed||[]; state.player.feed.push({text:txt, engagement});
+  state.player.fans += Math.round(engagement/25);
+  notify("Posted: " + txt);
+  refreshUI();
+}
+function startTrend(){
+  state.player.fame += 6; state.player.money -= 100; notify("Started a trending challenge"); refreshUI();
+}
+
+/* --------------------------
+   EMPIRE
+   -------------------------- */
+function openSignArtist(){
+  if(state.player.money < 2000){ notify("Need $2000"); return; }
+  state.player.money -= 2000;
+  state.inventory.labelArtists = state.inventory.labelArtists||[];
+  const an = "Artist"+(Math.floor(Math.random()*900)+100);
+  state.inventory.labelArtists.push({name:an, fans:Math.floor(Math.random()*1000)});
+  notify("Signed artist: " + an);
+  refreshUI();
+}
+function expandEmpire(){
+  if(state.player.money < 10000){ notify("Need $10,000"); return; }
+  state.player.money -= 10000; state.player.netWorth += 8000; notify("Expanded HQ"); refreshUI();
+}
+
+/* --------------------------
+   SHOP / IAP placeholders
+   -------------------------- */
+function buyPack(pack){
+  // simulated IAP
+  const log = localStorage.getItem('iap_log') || '';
+  if(pack==='connections'){ state.player.fame += 15; state.player.money += 1000; localStorage.setItem('iap_log', log + '\nBought connections'); notify('Connections pack applied'); }
+  if(pack==='hype'){ state.player.fame += 8; state.player.money -= 50; localStorage.setItem('iap_log', log + '\nBought hype'); notify('Hype starter'); }
+  if(pack==='vip'){ state.player.money += 200; state.player.fame += 10; localStorage.setItem('iap_log', log + '\nBought VIP'); notify('VIP applied'); }
+  refreshUI();
+}
+
+/* --------------------------
+   PERSONAL LIFE
+   -------------------------- */
+function meetSomeone(){
+  const p = {name: "Alex"+Math.floor(Math.random()*90), status:'dating', charm: Math.round(Math.random()*80), added: state.meta.day};
+  state.player.relationships = state.player.relationships||[];
+  state.player.relationships.push(p);
+  notify("Met " + p.name);
+  refreshUI();
+}
+function dateSomeone(){
+  if(!state.player.relationships || state.player.relationships.length===0){ notify("No one to date"); return; }
+  const r = state.player.relationships[Math.floor(Math.random()*state.player.relationships.length)];
+  // chance for scandal or press hit
+  if(Math.random() < 0.12) { state.player.heat += 8; state.player.rep -= 10; notify("Date leaked! Scandal"); }
+  else { state.player.rep += 4; state.player.fame += 2; notify("Nice date with " + r.name); }
+  state.player.energy -= 10; refreshUI();
+}
+function buyHouse(){
+  if(state.player.money < 8000){ notify("Need $8,000"); return; }
+  state.player.money -= 8000; state.inventory.houses.push({name:'Mansion'+(state.inventory.houses.length+1), value:8000}); notify("Bought house"); refreshUI();
+}
+function buyCar(){
+  if(state.player.money < 4500){ notify("Need $4,500"); return; }
+  state.player.money -= 4500; state.inventory.cars.push({make:'Sport'+(state.inventory.cars.length+1), value:4500}); notify("Bought car"); refreshUI();
+}
+
+/* --------------------------
+   RISKY ACTIONS (Game mechanic only)
+   -------------------------- */
+function doRisk(action){
+  if(!state.config.mature){ if(!confirm("Enable mature actions? These are fictional. Proceed?")) return; state.config.mature = true; document.getElementById('matureToggle').checked = true; }
+  if(action==='drug_deal'){ runRisk({title:'Drug Deal', basePay:2000, risk:0.35, heat:10}); }
+  if(action==='robbery'){ runRisk({title:'Robbery', basePay:10000, risk:0.7, heat:30}); }
+}
+function runRisk(opts){
+  // show choice
+  const ok = confirm(`${opts.title}\nExpected pay: $${opts.basePay}\nRisk of getting caught: ${Math.round(opts.risk*100)}%\nProceed?`);
+  if(!ok) return;
+  // random outcome
+  const detection = Math.random() < opts.risk + (state.player.heat/200);
+  if(detection){
+    // caught
+    state.player.criminalRecord += 1;
+    const fine = Math.round(opts.basePay * 0.6);
+    state.player.money = Math.max(0, state.player.money - fine);
+    state.player.rep -= 15;
+    state.player.heat += Math.round(opts.heat/2);
+    notify(`Caught in ${opts.title}. Fined $${fine} and reputation lost.`);
+    // arrest chance -> quick jail event
+    if(Math.random() < 0.5){ jailEvent(); }
+  } else {
+    // success
+    state.player.money += opts.basePay;
+    state.player.fame += Math.round(opts.basePay/2000);
+    state.player.heat += Math.round(opts.heat/3);
+    notify(`Successful ${opts.title}. Gained $${opts.basePay}`);
+  }
+  refreshUI();
+  tickDay();
+}
+function jailEvent(){
+  notify("Arrested! Going to trial...");
+  // simple mini resolution
+  const lawyerCost = Math.min(state.player.money, 2000);
+  if(confirm("Hire lawyer for $"+lawyerCost+"?")){
+    state.player.money -= lawyerCost; state.player.rep -= 5; notify("Lawyer hired — reduced sentence");
+  } else {
+    state.player.energy -= 30; state.player.rep -= 25;
+  }
+  // small time skip
+  state.meta.day += 7;
+  refreshUI();
+}
+
+/* --------------------------
+   RANDOM EVENTS ENGINE
+   -------------------------- */
+function randomEvent(){
+  const r = Math.random();
+  if(r < 0.2){
+    // meet producer
+    const chance = Math.random();
+    state.player.fame += 2; state.player.fans += 50;
+    state.events.push({title:"Producer spotted you", text:"A local producer liked your demo at a bar."});
+  } else if(r < 0.4){
+    // scandle-ish leak
+    state.player.heat += 6; state.player.rep -= 6; state.events.push({title:"Leaked Clip", text:"A snippet of an unreleased song leaked online."});
+  } else if(r < 0.6){
+    // brand approach
+    const money = Math.round(500 + Math.random()*5000);
+    state.events.push({title:"Brand Offer", text:`A small brand offers $${money} to feature you in a campaign.`});
+    // present accept/decline
+    if(confirm("Small brand offer: $"+money+" Accept?")){ state.player.money += money; state.player.fame += 3; notify("Brand deal accepted"); }
+  } else if(r < 0.75){
+    // tragedy or serious event possibility
+    if(state.config.mature && Math.random()<0.2){
+      state.events.push({title:"Bad Party", text:"Someone overdosed at a private party — press is asking questions."});
+      state.player.rep -= 15; state.player.heat += 10;
+    } else {
+      state.events.push({title:"Viral Clip", text:"A fan video of your freestyle goes viral."});
+      state.player.fame += 8; state.player.fans += 300;
+    }
+  } else {
+    // quiet positive event
+    state.events.push({title:"Local Radio Play", text:"A local station played your demo."}); state.player.fame += 2; state.player.money += 50;
+  }
+  refreshUI();
+}
+
+/* --------------------------
+   Jail / Trial / Bribe options (ui ready)
+   -------------------------- */
+
+function bribe(amount){
+  if(state.player.money < amount){ notify("Not enough money to bribe"); return; }
+  state.player.money -= amount; const success = Math.random() < (0.4 + amount/10000);
+  if(success){ state.player.heat = Math.max(0, state.player.heat - 10); notify("Bribe succeeded — heat lowered"); }
+  else { state.player.rep -= 30; notify("Bribe failed — exposed"); }
+  refreshUI();
+}
+
+/* --------------------------
+   Utility UI functions
+   -------------------------- */
+function notifyEvent(msg){ state.events.push({title:msg, text:new Date().toLocaleString()}); refreshUI(); }
+
+window.onload = ()=>{
+  buildNav(); buildRightMenu();
+  refreshUI();
+  // attach some buttons
+  document.getElementById('loadGameStart').onclick = ()=>{ document.getElementById('splashScreen').style.display='none'; document.getElementById('mainUI').style.display='block'; loadToState(); };
+}
+
+/* --------------------------
+   Quick actions used by UI
+   -------------------------- */
+function rest(){ state.player.energy = Math.min(100, state.player.energy + 40); state.player.rep += 2; notify("Rested"); tickDay(); }
+function clubNight(){ state.player.fame += 3; state.player.energy -= 20; state.player.heat += 6; notify("Club night — networked & partied"); tickDay(); }
+
+/* --------------------------
+   small helpers used by prompts
+   -------------------------- */
+function valueOr(v, fallback){ return v || fallback; }
+</script>
 </body>
-</html>            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .dark-mode-toggle:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .hero-stats {
-                justify-content: center;
-            }
-            
-            .hero-text {
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .btn {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-            
-            .stat-value {
-                font-size: 2rem;
-            }
-            
-            .cta-title {
-                font-size: 2rem;
-            }
-            
-            .phone-mockup {
-                width: 260px;
-                height: 500px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Dark Mode Toggle -->
-    <div class="dark-mode-toggle" id="darkModeToggle">
-        <i class="fas fa-moon" id="moonIcon"></i>
-        <i class="fas fa-sun hidden" id="sunIcon"></i>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-shield-alt"></i>
-                JayVian
-            </a>
-            <nav class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Coverage</a>
-                <a href="#">How It Works</a>
-                <a href="#">Claims</a>
-                <a href="#">About Us</a>
-            </nav>
-            <div class="nav-buttons">
-                <button class="btn btn-secondary">
-                    <i class="fas fa-sign-in-alt"></i> Login
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Enterprise-Grade Phone Protection in Kenya</h1>
-                <p>Trusted by over 5,000 Kenyans to secure their mobile devices with our comprehensive theft insurance plans.</p>
-                
-                <div class="hero-buttons">
-                    <button class="btn btn-primary">
-                        <i class="fas fa-shield-alt"></i> Get Protected Now
-                    </button>
-                    <button class="btn btn-secondary">
-                        <i class="fas fa-play-circle"></i> How It Works
-                    </button>
-                </div>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-value">50K+</span>
-                        <span class="stat-label">Phones Stolen</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">87%</span>
-                        <span class="stat-label">Claim Approval</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">72h</span>
-                        <span class="stat-label">Payout Time</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hero-image">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="phone-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>360° Theft Protection</h3>
-                        <p>Policy Duration: <span style="color: #ffd700; font-weight: 600;">Active</span></p>
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="floating-elements">
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Comprehensive Phone Protection</h2>
-                <p class="section-subtitle">Our enterprise-grade insurance plans provide complete coverage against theft and accidental damage.</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3 class="feature-title">Immediate Protection</h3>
-                    <p class="feature-description">Coverage starts the moment you sign up, with claims eligible after just 3 months of active premiums.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <h3 class="feature-title">20,000 KES Payout</h3>
-                    <p class="feature-description">Receive the full replacement value for your stolen device with our hassle-free claims process.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
-                    <h3 class="feature-title">Earn With Friends</h3>
-                    <p class="feature-description">Get 10% of your referrals' premiums. Build a network and fund your own coverage!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="testimonial-card">
-                <p class="testimonial-content">"JayVian helped me recover when my phone was stolen in Nairobi. Their claims process was incredibly smooth, and I received my payout within just 48 hours. I recommend JayVian to all my friends and family!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">WK</div>
-                    <div class="author-info">
-                        <h4>Wairimu K.</h4>
-                        <p>Mombasa Road, Nairobi</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-container">
-                <h2 class="cta-title">Protect Your Device Today</h2>
-                <p class="cta-subtitle">Get protection from day one for just 700 KES/month - eligible to claim up to 20,000 KES after 3 months</p>
-                <button class="cta-button">
-                    <i class="fas fa-shield-alt"></i> Start Protection Now
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>JayVian</h3>
-                    <p style="color: #cbd5e1; margin-bottom: 20px; line-height: 1.6;">Providing enterprise-grade phone protection to Kenyans since 2020. Trusted by thousands to secure their valuable devices.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Coverage Plans</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> How It Works</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> File a Claim</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Westlands, Nairobi, Kenya</a></li>
-                        <li><a href="#"><i class="fas fa-phone-alt"></i> +254 700 123 456</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> support@jayvian.co.ke</a></li>
-                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 8AM - 6PM</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 JayVian Microinsurance. All rights reserved. | Regulated by the Insurance Regulatory Authority of Kenya</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Dark mode toggle functionality
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const moonIcon = document.getElementById('moonIcon');
-        const sunIcon = document.getElementById('sunIcon');
-        const body = document.body;
-
-        // Check for saved dark mode preference
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.classList.add('dark-mode');
-            moonIcon.classList.add('hidden');
-            sunIcon.classList.remove('hidden');
-        }
-
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                moonIcon.classList.remove('hidden');
-                sunIcon.classList.add('hidden');
-                localStorage.setItem('darkMode', 'disabled');
-            }
-        });
-
-        // Floating animation for feature cards
-        const featureCards = document.querySelectorAll('.feature-card');
-        featureCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Animation for elements on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Apply animations to sections
-        document.querySelectorAll('.hero-text, .hero-image, .section-header, .feature-card, .testimonial-card, .cta-container').forEach(el => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(el);
-        });
-
-        // Add smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+                      </html>
